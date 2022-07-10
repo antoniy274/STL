@@ -1,20 +1,39 @@
-﻿// list of billionaires.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+#include <functional>
+#include <list>
+#include <map>
 
-#include <iostream>
+struct billionaire {
+    std::string name;
+    double dollars;
+    std::string country;
+};
+
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::list<billionaire> billionaires{
+        {"ELON MUSK", 219, "USA"},
+        {"Jeff Bezos", 171, "USA"},
+        {"Bill Gates", 129, "USA"},
+        {"Warren Baffet", 118, "USA"},
+        {"Mukesh Ambani", 90.7, "India"},
+        {"Zhong Shanshan", 65.7, "China"},
+        {"Amancio Ortega", 59.6, "Spain"}
+    };
+    std::map < std::string, std::pair <const billionaire, size_t>> m;
+    for (const auto& b : billionaires) {
+        auto [iterator, success] = m.try_emplace(b.country, b, 1);
+        if (!success) {
+            iterator->second.second += 1;
+        }
+    }
+    for (const auto& [key, value] : m) {
+        const auto& [b, count] = value;
+        std::cout << b.country << " : " << count
+            << " billionaires. Richest is "
+            << b.name << " with " << b.dollars
+            << " B$\n";
+    }
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.

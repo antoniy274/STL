@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{4932a09a-2126-42fd-96a8-95bd8a8161de}</ProjectGuid>
-    <RootNamespace>listofbillionaires</RootNamespace>
+    <ProjectGuid>{31e0f7a8-22c6-4f8a-90f4-81aabe4dbc7a}</ProjectGuid>
+    <RootNamespace>efficientlychangeelementkeys</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -140,7 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="list of billionaires.cpp" />
+    <ClCompile Include="efficiently change element keys.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
